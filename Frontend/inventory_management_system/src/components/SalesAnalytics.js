@@ -40,7 +40,7 @@ const SalesAnalytics = () => {
                 if (endDate) params.append('endDate', endDate);
             }
 
-            const response = await fetch(`http://localhost:3001/sales/analytics/summary?${params}`, {
+            const response = await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/sales/analytics/summary?${params}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

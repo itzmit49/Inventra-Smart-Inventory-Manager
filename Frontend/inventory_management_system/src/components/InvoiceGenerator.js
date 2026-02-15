@@ -21,7 +21,7 @@ const InvoiceGenerator = () => {
     const fetchProducts = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:3001/products', {
+            const response = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/products', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (!response.ok) {
@@ -109,7 +109,7 @@ const InvoiceGenerator = () => {
         setSuccess('');
 
         try {
-            const response = await fetch('http://localhost:3001/createinvoice', {
+            const response = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/createinvoice', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ const InvoiceGenerator = () => {
         setError('');
 
         try {
-            const response = await fetch(`http://localhost:3001/confirminvoice/${invoice._id}`, {
+            const response = await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/confirminvoice/${invoice._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ const InvoiceGenerator = () => {
 
         // Optional: Mark as printed in database
         try {
-            await fetch(`http://localhost:3001/printinvoice/${invoice._id}`, {
+            await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/printinvoice/${invoice._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
