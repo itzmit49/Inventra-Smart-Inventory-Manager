@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
    */
   const signup = async (userData) => {
     try {
-      const res = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/api/auth/signup', {
+      const res = await fetch('http://localhost:3001/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
    */
   const login = async (credentials) => {
     try {
-      const res = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/api/auth/login', {
+      const res = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)

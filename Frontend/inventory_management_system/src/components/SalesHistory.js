@@ -30,7 +30,7 @@ const SalesHistory = () => {
         setLoading(true);
         setError('');
         try {
-            const response = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/sales', {
+            const response = await fetch('http://localhost:3001/sales', {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

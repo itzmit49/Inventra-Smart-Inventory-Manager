@@ -40,7 +40,7 @@ export default function Products() {
     const getProducts = async () => {
         setIsLoading(true);
         try {
-            const res = await fetch("https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/products", {
+            const res = await fetch("http://localhost:3001/products", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function Products() {
         }
 
         try {
-            const response = await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/deleteproduct/${id}`, {
+            const response = await fetch(`http://localhost:3001/deleteproduct/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

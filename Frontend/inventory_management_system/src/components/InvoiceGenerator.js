@@ -13,15 +13,16 @@ const InvoiceGenerator = () => {
     const [invoice, setInvoice] = useState(null);
     const [showPreview, setShowPreview] = useState(false);
 
-    // Fetch products on component mount
+    // Fetch products when token becomes available
     useEffect(() => {
+        if (!token) return; // wait for auth token to be set to avoid 401
         fetchProducts();
-    }, []);
+    }, [token]);
 
     const fetchProducts = async () => {
         setLoading(true);
         try {
-            const response = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/products', {
+            const response = await fetch('http://localhost:3001/products', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (!response.ok) {
@@ -109,7 +110,7 @@ const InvoiceGenerator = () => {
         setSuccess('');
 
         try {
-            const response = await fetch('https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/createinvoice', {
+            const response = await fetch('http://localhost:3001/createinvoice', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -150,7 +151,7 @@ const InvoiceGenerator = () => {
         setError('');
 
         try {
-            const response = await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/confirminvoice/${invoice._id}`, {
+            const response = await fetch(`http://localhost:3001/confirminvoice/${invoice._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -183,7 +184,7 @@ const InvoiceGenerator = () => {
 
         // Optional: Mark as printed in database
         try {
-            await fetch(`https://inventra-smart-inventory-manager-backend-yrr0.onrender.com/printinvoice/${invoice._id}`, {
+            await fetch(`http://localhost:3001/printinvoice/${invoice._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
