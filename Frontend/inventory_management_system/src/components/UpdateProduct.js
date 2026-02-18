@@ -47,7 +47,7 @@ export default function UpdateProduct() {
         const getProduct = async () => {
             setLoadingInitial(true);
             try {
-                const res = await fetch(`http://localhost:3001/products/${id}`, {
+                const res = await fetch(`https://inventra-smart-inventory-manager.onrender.com/products/${id}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -95,7 +95,7 @@ export default function UpdateProduct() {
         setError("");
 
         try {
-            const response = await fetch(`http://localhost:3001/updateproduct/${id}`, {
+            const response = await fetch(`https://inventra-smart-inventory-manager.onrender.com/updateproduct/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
