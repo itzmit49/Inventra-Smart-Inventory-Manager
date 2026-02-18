@@ -56,7 +56,7 @@ export default function InsertProduct() {
         setError("");
 
         try {
-            const res = await fetch("http://localhost:3001/insertproduct", {
+            const res = await fetch("https://inventra-smart-inventory-manager.onrender.com/insertproduct", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
